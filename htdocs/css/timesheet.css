@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+
+.uren {
+	float: left;
+}
+
+.uren th {
+	text-align: left;
+}
+
+.uren td {
+	padding: 5px;
+	padding-left: 1px;
+}
+
+.uren tr.total {
+	font-weight: bold;
+}
+
+.projects {
+	float: right;
+	margin-right: 50px;
+	
+}
+
+.projects table {
+	border: 1px solid black;
+}
+
+.projects tr {
+	cursor:pointer
+}
+
+.projects th {
+	text-align: left;
+}
+
+.projects td {
+	padding: 5px;
+	padding-left: 1px;
+}
+
+.projects td:hover {
+	text-decoration: underline;
+}
+
+.projects ul {
+	list-style-type: none;
+	padding: 10;
+	border: 1px solid black;
+}
+
+.projects ul li {
+	text-decoration: underline;	
+	cursor: pointer;
+}

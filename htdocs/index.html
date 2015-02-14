@@ -1,0 +1,58 @@
+<html ng-app="timesheetApp">
+<head>
+	<title>Timesheet</title>
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/timesheet.css">
+</head>
+<body ng-controller="TimesheetCtrl">
+<h1>Timesheet</h1>
+<div class="autoinput">
+	<div id="msg"></div>
+	<select name="project_id" id="project_id">
+		<option ng-repeat="project in projects" value="{{project.id}}">{{project.name}}</option>
+	</select>
+	<input type="text" id="description" name="description" value=""/>
+	<input type="button" id="start" name="start" value="start" ng-click="setStartTime()"/>
+	<input type="button" id="end" name="end" value="stop" style="display:none;" ng-click="setEndTime()"/>
+	<input type="hidden" id="timesheet_id" name="timesheet_id" />
+</div>
+<div class="uren">
+	<h2>Uren</h2>
+	<table>
+		<thead>
+			<tr><th>Project</th><th>Taak</th><th>Uren</th><th>Datum</th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="worktime in worktimes">
+				<td>{{worktime.project}}</td>
+				<td>{{worktime.task}}</td>
+				<td>{{worktime.worktime}}</td>
+				<td>{{worktime.date}}</td>
+			</tr>
+			<tr class="total">
+				<td>Totaal</td>
+				<td></td>
+				<td>{{total_worktime}}</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="projects">
+	<h2>Projecten</h2>
+	<table>
+		<thead>
+			<tr><th>Project</th><th>Uren</th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="project in projects" ng-click="loadWorkTimes(project.id)">
+				<td >{{project.name}}</td>
+				<td>{{project.total_time}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
